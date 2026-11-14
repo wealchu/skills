@@ -2,7 +2,7 @@
 name: telegram-bot
 description: "Telegram bot development - chatbots, notifications, AI assistants, and group automation"
 version: "1.0.0"
-author: claude-office-skills
+author: wealchu
 license: MIT
 
 category: messaging
@@ -16,7 +16,7 @@ department: Engineering
 
 models:
   recommended:
-    - claude-sonnet-4
+    - gpt-6-astra
 
 mcp:
   server: telegram-mcp
@@ -42,6 +42,10 @@ related_skills:
   - ai-agent-builder
   - slack-workflows
 ---
+
+## Model and execution requirement
+
+Use OpenAI GPT-6 Astra (`gpt-6-astra`), the highest-capability general model verified for this release. Use the strongest supported reasoning setting in the actual host; the API reference configuration uses `max`. Do not route through another model provider or silently downgrade. If this model is unavailable, report that blocker before model-dependent execution. A skill cannot switch the host model: verify the actual session selection separately. Follow the user's current account rules and task permissions. Consult the repository's `MODEL_POLICY.md` for the verified release date, official sources, and update procedure.
 
 # Telegram Bot
 
@@ -153,50 +157,24 @@ handlers:
 
 ### n8n Workflow
 
-```yaml
-workflow: "Telegram Bot n8n"
+**Workflow recipe (not an importable n8n export):** retain the described trigger, parsing, and destination steps; configure the AI step as an HTTP POST to `https://api.openai.com/v1/responses` with an OpenAI credential stored in the workflow credential store. Preserve the original business destination and require authorization before sending messages or writing records.
 
-nodes:
-  - name: "Telegram Trigger"
-    type: "n8n-nodes-base.telegramTrigger"
-    parameters:
-      updates: ["message", "callback_query"]
-      
-  - name: "Route Message Type"
-    type: "n8n-nodes-base.switch"
-    parameters:
-      rules:
-        - output: 0
-          condition: "{{ $json.message.text.startsWith('/') }}"
-        - output: 1
-          condition: "{{ $json.message.photo }}"
-        - output: 2
-          condition: "{{ $json.message.voice }}"
-        - output: 3
-          fallback: true
-          
-  - name: "Process with AI"
-    type: "n8n-nodes-base.openAi"
-    parameters:
-      model: "gpt-4"
-      messages:
-        - role: "system"
-          content: "You are a helpful Telegram assistant."
-        - role: "user"
-          content: "{{ $json.message.text }}"
-          
-  - name: "Send Response"
-    type: "n8n-nodes-base.telegram"
-    parameters:
-      chatId: "{{ $json.message.chat.id }}"
-      text: "{{ $json.response }}"
+```json
+{
+  "model": "gpt-6-astra",
+  "reasoning": {"effort": "max"},
+  "instructions": "Complete the requested business task using only authorized input; flag missing evidence.",
+  "input": "[authorized task text assembled from the preceding workflow step]"
+}
 ```
+
+Extract completed message output_text items from the response's output array before passing them to the downstream step. Treat incomplete responses and API errors as failures; never downgrade or switch providers. Verify the version-specific node schema and end-to-end data mapping before deployment.
 
 ---
 
 ## AI-Powered Bot
 
-### GPT-4 Integration
+### GPT-6 Astra Integration
 
 ```yaml
 ai_bot:
@@ -228,21 +206,21 @@ ai_bot:
 multimodal_bot:
   handlers:
     text:
-      model: gpt-4
-      action: chat_completion
+      model: gpt-6-astra
+      action: responses
       
     image:
-      model: gpt-4-vision
-      action: analyze_and_respond
+      model: gpt-6-astra
+      action: responses_image_input
       
     voice:
       transcribe: whisper
-      process: gpt-4
+      process: gpt-6-astra
       respond: text_or_voice
       
     document:
       extract: based_on_type
-      summarize: gpt-4
+      summarize: gpt-6-astra
       respond: text
 ```
 
@@ -524,4 +502,4 @@ async function sendAlert(severity, message, details) {
 
 ---
 
-*Telegram Bot Skill - Part of Claude Office Skills*
+*Telegram Bot Skill - Part of ChatGPT Office Skills*

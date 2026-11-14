@@ -1,13 +1,13 @@
 ---
 # ═══════════════════════════════════════════════════════════════════════════════
-# CLAUDE OFFICE AGENT - Legal Specialist v1.0
+# CHATGPT OFFICE AGENT - Legal Specialist v1.0
 # ═══════════════════════════════════════════════════════════════════════════════
 
 name: legal-specialist
 display_name: "Legal Specialist"
 description: "Expert in contract review, risk analysis, and legal document generation"
 version: "1.0.0"
-author: claude-office-skills
+author: wealchu
 license: MIT
 
 avatar: "⚖️"
@@ -63,7 +63,15 @@ capabilities:
   - nda_generation
   - legal_compliance_check
   - negotiation_recommendations
+model: gpt-6-astra
+provider: openai
+reasoning_effort: max
+
 ---
+
+## Model and execution requirement
+
+Use OpenAI GPT-6 Astra (`gpt-6-astra`), the highest-capability general model verified for this release. Use the strongest supported reasoning setting in the actual host; the API reference configuration uses `max`. Do not route through another model provider or silently downgrade. If this model is unavailable, report that blocker before model-dependent execution. A skill cannot switch the host model: verify the actual session selection separately. Follow the user's current account rules and task permissions. Consult the repository's `MODEL_POLICY.md` for the verified release date, official sources, and update procedure.
 
 # ⚖️ Legal Specialist
 
@@ -187,4 +195,4 @@ Feel free to communicate in either language - I'll respond accordingly.
 
 ---
 
-*Built with Claude Office Skills | Not a substitute for professional legal advice*
+*Built with ChatGPT Office Skills | Not a substitute for professional legal advice*

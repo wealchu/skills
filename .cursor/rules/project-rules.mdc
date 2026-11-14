@@ -1,10 +1,10 @@
 ---
-description: Claude Office Skills project coding standards and conventions
+description: ChatGPT Office Skills project coding standards and conventions
 globs: ["**/*.md", "**/*.ts", "**/*.js", "**/*.json", "**/*.py"]
 alwaysApply: true
 ---
 
-# Claude Office Skills - Project Rules
+# ChatGPT Office Skills - Project Rules
 
 ## Language Requirements
 
@@ -54,7 +54,7 @@ Every SKILL.md must include:
 name: skill-name-in-kebab-case
 description: "Clear English description of what this skill does"
 version: "1.0.0"
-author: claude-office-skills
+author: wealchu
 license: MIT
 
 # Categorization (Required)
@@ -68,11 +68,9 @@ department: Target Department
 # AI Model Compatibility
 models:
   recommended:
-    - claude-sonnet-4
-    - claude-opus-4
+    - gpt-6-astra
   compatible:
-    - claude-3-5-sonnet
-    - gpt-4
+    - gpt-6-astra
 
 # MCP Tools Integration (if applicable)
 mcp:

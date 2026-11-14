@@ -1,13 +1,13 @@
 ---
 # ═══════════════════════════════════════════════════════════════════════════════
-# CLAUDE OFFICE SKILL - Enhanced Metadata v2.0
+# CHATGPT OFFICE SKILL - Enhanced Metadata v2.0
 # ═══════════════════════════════════════════════════════════════════════════════
 
 # Basic Information
 name: office-mcp
 description: "MCP server with 39 tools for Word, Excel, PowerPoint, PDF, OCR operations"
 version: "2.1"
-author: claude-office-skills
+author: wealchu
 license: MIT
 
 # Categorization
@@ -25,12 +25,9 @@ department: All
 # AI Model Compatibility
 models:
   recommended:
-    - claude-sonnet-4
-    - claude-opus-4
+    - gpt-6-astra
   compatible:
-    - claude-3-5-sonnet
-    - gpt-4
-    - gpt-4o
+    - gpt-6-astra
 
 # Skill Capabilities
 capabilities:
@@ -47,6 +44,10 @@ languages:
   - en
   - zh
 ---
+
+## Model and execution requirement
+
+Use OpenAI GPT-6 Astra (`gpt-6-astra`), the highest-capability general model verified for this release. Use the strongest supported reasoning setting in the actual host; the API reference configuration uses `max`. Do not route through another model provider or silently downgrade. If this model is unavailable, report that blocker before model-dependent execution. A skill cannot switch the host model: verify the actual session selection separately. Follow the user's current account rules and task permissions. Consult the repository's `MODEL_POLICY.md` for the verified release date, official sources, and update procedure.
 
 # Office MCP Server
 
@@ -125,22 +126,14 @@ npm install
 npm run build
 ```
 
-### 2. Configure Claude Desktop
+### 2. Configure the supported MCP host
 
-Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
+Follow [CHATGPT_CONFIGURATION.md](../CHATGPT_CONFIGURATION.md). Register the compiled stdio server in an authorized Codex host using `codex mcp add`. A ChatGPT web connection needs a hosted MCP/plugin endpoint and separate verification. Do not invent a desktop configuration filename.
 
-```json
-{
-  "mcpServers": {
-    "office-mcp": {
-      "command": "/usr/local/bin/node",
-      "args": ["/path/to/claude-office-skills/mcp-servers/office-mcp/dist/index.js"]
-    }
-  }
-}
-```
+### 3. Verify the connection
 
-### 3. Restart Claude Desktop
+List the connected tools and run a harmless document read. Confirm the host's selected model separately. Source changes do not prove a live connection.
+
 
 ## Example Prompts
 
@@ -174,6 +167,6 @@ turndown, marked         - Markdown conversion
 
 ## Resources
 
-- [MCP Server Code](https://github.com/claude-office-skills/skills/tree/main/mcp-servers/office-mcp)
+- [MCP Server Code](https://github.com/wealchu/skills/tree/main/mcp-servers/office-mcp)
 - [Implementation Plan](./mcp-servers/office-mcp/IMPLEMENTATION_PLAN.md)
-- [Claude Office Skills Hub](https://github.com/claude-office-skills/skills)
+- [ChatGPT Office Skills Hub](https://github.com/wealchu/skills)

@@ -1,8 +1,8 @@
 ---
 name: ai-agent-builder
-description: "Build AI agents with tools, memory, and multi-step reasoning - ChatGPT, Claude, Gemini integration patterns"
+description: "Build AI agents with tools, memory, and multi-step reasoning - OpenAI Responses integration patterns"
 version: "1.0.0"
-author: claude-office-skills
+author: wealchu
 license: MIT
 
 category: ai
@@ -16,8 +16,7 @@ department: Engineering
 
 models:
   recommended:
-    - claude-opus-4
-    - claude-sonnet-4
+    - gpt-6-astra
 
 capabilities:
   - agent_design
@@ -36,9 +35,13 @@ related_skills:
   - slack-workflows
 ---
 
+## Model and execution requirement
+
+Use OpenAI GPT-6 Astra (`gpt-6-astra`), the highest-capability general model verified for this release. Use the strongest supported reasoning setting in the actual host; the API reference configuration uses `max`. Do not route through another model provider or silently downgrade. If this model is unavailable, report that blocker before model-dependent execution. A skill cannot switch the host model: verify the actual session selection separately. Follow the user's current account rules and task permissions. Consult the repository's `MODEL_POLICY.md` for the verified release date, official sources, and update procedure.
+
 # AI Agent Builder
 
-Design and build AI agents with tools, memory, and multi-step reasoning capabilities. Covers ChatGPT, Claude, Gemini integration patterns based on n8n's 5,000+ AI workflow templates.
+Design and build AI agents with tools, memory, and multi-step reasoning capabilities. Covers OpenAI Responses integration patterns based on n8n's 5,000+ AI workflow templates.
 
 ## Overview
 
@@ -166,6 +169,8 @@ tool_categories:
 
 ### n8n Tool Integration
 
+Conceptual workflow only: configure a Responses-capable model node or an HTTP Responses tool loop in the installed n8n version. This YAML is not an importable workflow. Read MODEL_POLICY.md and preserve tool-call IDs and outputs when implementing the loop.
+
 ```yaml
 n8n_agent_workflow:
   nodes:
@@ -175,7 +180,9 @@ n8n_agent_workflow:
         
     - ai_agent:
         type: "@n8n/n8n-nodes-langchain.agent"
-        model: openai_gpt4
+        model: gpt-6-astra
+        api: responses
+        reasoning_effort: max
         system_prompt: |
           You are a helpful assistant that can:
           1. Search the web for information
@@ -332,7 +339,7 @@ slack_agent:
         action: fetch_thread_history
         
     3. process_with_agent:
-        model: gpt-4
+        model: gpt-6-astra
         system: "You are a helpful Slack assistant"
         tools: [web_search, jira_lookup, calendar_check]
         
@@ -403,7 +410,7 @@ web_chat_agent:
 ```yaml
 support_agent:
   name: "Customer Support AI"
-  model: gpt-4
+  model: gpt-6-astra
   
   system_prompt: |
     You are a customer support agent for {company}.
@@ -441,7 +448,7 @@ support_agent:
 ```yaml
 research_agent:
   name: "Research Assistant"
-  model: claude-opus
+  model: gpt-6-astra
   
   system_prompt: |
     You are a research assistant that helps users find 
@@ -483,7 +490,7 @@ research_agent:
 ```yaml
 agent:
   name: "Scheduling Assistant"
-  model: gpt-4
+  model: gpt-6-astra
   
   capabilities:
     - Check calendar availability
@@ -544,4 +551,4 @@ workflow:
 
 ---
 
-*AI Agent Builder Skill - Part of Claude Office Skills*
+*AI Agent Builder Skill - Part of ChatGPT Office Skills*

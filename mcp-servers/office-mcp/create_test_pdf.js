@@ -87,7 +87,7 @@ async function createTestPDF() {
   
   // Set metadata
   pdfDoc.setTitle('Office MCP Test PDF');
-  pdfDoc.setAuthor('Claude Office Skills');
+  pdfDoc.setAuthor('ChatGPT Office Skills');
   pdfDoc.setSubject('Test Document for MCP PDF Tools');
   pdfDoc.setCreator('office-mcp test suite');
   pdfDoc.setProducer('pdf-lib');
@@ -104,7 +104,7 @@ async function createTestPDF() {
   console.log('📊 Pages: 2');
   console.log('📏 Size:', (pdfBytes.length / 1024).toFixed(2), 'KB');
   console.log('');
-  console.log('Now you can test in Claude Desktop:');
+  console.log('Now you can test in ChatGPT Work:');
   console.log('1. Upload this PDF');
   console.log('2. Ask: "帮我提取这个PDF的文本"');
   console.log('3. Check if extract_text_from_pdf is called');

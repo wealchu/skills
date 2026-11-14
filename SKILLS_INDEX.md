@@ -1,10 +1,10 @@
-# Claude Office Skills Index
+# ChatGPT Office Skills Index
 
-> Add this file to your Claude Desktop Project to enable 77+ professional skills.
+> This index is navigation, not installation. Read CHATGPT_CONFIGURATION.md and MODEL_POLICY.md; load the selected skill and its dependencies in the actual host.
 
 ## Quick Reference
 
-When you need help with office tasks, ask Claude to use the appropriate skill:
+When you need help with office tasks, ask ChatGPT to use the appropriate skill:
 
 ### Finance & Investment
 - `stock-analysis` - Analyze stocks with fundamental and technical analysis
@@ -60,12 +60,12 @@ When you need help with office tasks, ask Claude to use the appropriate skill:
 
 ## How to Use
 
-Simply ask Claude:
+Simply ask ChatGPT:
 - "Use the stock-analysis skill to analyze Apple (AAPL)"
 - "Use the contract-review skill to check this contract for risks"
 - "Use the dcf-valuation skill to value this SaaS company"
 
-Or describe your task and Claude will select the appropriate skill automatically.
+Or describe your task and ChatGPT will select the appropriate skill automatically.
 
 ---
 
@@ -185,13 +185,13 @@ Or describe your task and Claude will select the appropriate skill automatically
 
 All skills are located at:
 ```
-/Users/kingsoft/Desktop/claude-office-skills/[skill-name]/SKILL.md
+<repository-root>/[skill-name]/SKILL.md
 ```
 
 Example:
-- `/Users/kingsoft/Desktop/claude-office-skills/stock-analysis/SKILL.md`
-- `/Users/kingsoft/Desktop/claude-office-skills/contract-review/SKILL.md`
+- `<repository-root>/stock-analysis/SKILL.md`
+- `<repository-root>/contract-review/SKILL.md`
 
 ---
 
-*Claude Office Skills - 77+ professional skills for office productivity*
+*ChatGPT Office Skills - 77+ professional skills for office productivity*

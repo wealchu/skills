@@ -1,13 +1,13 @@
 ---
 # ═══════════════════════════════════════════════════════════════════════════════
-# CLAUDE OFFICE SKILL - Enhanced Metadata v2.0
+# CHATGPT OFFICE SKILL - Enhanced Metadata v2.0
 # ═══════════════════════════════════════════════════════════════════════════════
 
 # Basic Information
 name: mcp-hub
 description: "Access 1200+ AI Agent tools via Model Context Protocol (MCP)"
 version: "1.0"
-author: claude-office-skills
+author: wealchu
 license: MIT
 
 # Categorization
@@ -22,12 +22,9 @@ department: All
 # AI Model Compatibility
 models:
   recommended:
-    - claude-sonnet-4
-    - claude-opus-4
+    - gpt-6-astra
   compatible:
-    - claude-3-5-sonnet
-    - gpt-4
-    - gpt-4o
+    - gpt-6-astra
 
 # Skill Capabilities
 capabilities:
@@ -40,11 +37,15 @@ languages:
   - zh
 ---
 
+## Model and execution requirement
+
+Use OpenAI GPT-6 Astra (`gpt-6-astra`), the highest-capability general model verified for this release. Use the strongest supported reasoning setting in the actual host; the API reference configuration uses `max`. Do not route through another model provider or silently downgrade. If this model is unavailable, report that blocker before model-dependent execution. A skill cannot switch the host model: verify the actual session selection separately. Follow the user's current account rules and task permissions. Consult the repository's `MODEL_POLICY.md` for the verified release date, official sources, and update procedure.
+
 # Mcp Hub Skill
 
 ## Overview
 
-This skill provides access to 1200+ MCP (Model Context Protocol) servers - standardized tools that extend AI capabilities. Connect Claude to filesystems, databases, APIs, and document processing tools.
+This skill provides access to 1200+ MCP (Model Context Protocol) servers - standardized tools that extend AI capabilities. Connect ChatGPT to filesystems, databases, APIs, and document processing tools.
 
 ## How to Use
 
@@ -64,7 +65,7 @@ This skill provides access to 1200+ MCP (Model Context Protocol) servers - stand
 ### MCP Architecture
 
 ```
-Claude ←→ MCP Server ←→ External Resource
+ChatGPT ←→ MCP Server ←→ External Resource
         (Protocol)      (Files, APIs, DBs)
 ```
 
@@ -79,24 +80,8 @@ Claude ←→ MCP Server ←→ External Resource
 
 ### Configuration Example
 
-```json
-{
-  "mcpServers": {
-    "filesystem": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "/path/to/documents"
-      ]
-    },
-    "google-drive": {
-      "command": "npx",
-      "args": ["-y", "@anthropic/mcp-google-drive"]
-    }
-  }
-}
-```
+Use the installed Google Drive connection for authorized Drive tasks. Do not install a guessed MCP package. For this repository's document server, follow CHATGPT_CONFIGURATION.md and verify the actual connection in the chosen host.
+
 
 ### MCP Tool Discovery
 
@@ -108,7 +93,7 @@ Browse available servers:
 ### Using MCP in Skills
 
 ```python
-# MCP tools become available to Claude automatically
+# MCP tools become available to ChatGPT automatically
 # Example: filesystem MCP provides these tools:
 
 # read_file(path) - Read file contents
@@ -135,4 +120,4 @@ pip install python-docx openpyxl python-pptx reportlab jinja2
 ## Resources
 
 - [MCP Servers Repository](https://github.com/modelcontextprotocol/servers)
-- [Claude Office Skills Hub](https://github.com/claude-office-skills/skills)
+- [ChatGPT Office Skills Hub](https://github.com/wealchu/skills)

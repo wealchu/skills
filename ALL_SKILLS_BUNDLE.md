@@ -1,13 +1,13 @@
-# Claude Office Skills - Complete Bundle
+# ChatGPT Office Skills - Complete Bundle
 
-> This file contains all 77+ skills bundled together. Add this single file to Claude Desktop Project Knowledge for instant access to all skills.
+> Legacy condensed summaries, not a complete installation bundle. Read the relevant SKILL.md and MODEL_POLICY.md before execution; do not treat these summaries as all current skill instructions.
 
 ---
 
 ## How to Use This File
 
-1. **In Claude Desktop**: Create a new Project → Add this file to Project Knowledge
-2. **Ask Claude**: "Use the [skill-name] skill to [your task]"
+1. **In ChatGPT Work**: Select GPT-6 Astra and load the chosen current SKILL.md and dependencies.
+2. **Ask ChatGPT**: "Use the [skill-name] skill to [your task]"
 
 ---
 
@@ -694,5 +694,5 @@ Code example
 
 ---
 
-*Claude Office Skills - 77+ professional skills for office productivity*
-*Add this file to Claude Desktop Project Knowledge for instant access*
+*ChatGPT Office Skills - 77+ professional skills for office productivity*
+*Use current SKILL.md files and verify installation and model selection separately.*

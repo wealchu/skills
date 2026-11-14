@@ -503,7 +503,7 @@ def generate_enhanced_frontmatter(skill_name: str, existing: dict) -> str:
     name = existing.get('name', skill_name)
     description = existing.get('description', f'A skill for {skill_name.replace("-", " ")}')
     version = existing.get('version', '1.0.0')
-    author = existing.get('author', 'claude-office-skills')
+    author = 'wealchu'
     license_val = existing.get('license', 'MIT')
     
     category = metadata.get('category', 'productivity')
@@ -516,7 +516,7 @@ def generate_enhanced_frontmatter(skill_name: str, existing: dict) -> str:
     lines = [
         '---',
         '# ═══════════════════════════════════════════════════════════════════════════════',
-        '# CLAUDE OFFICE SKILL - Enhanced Metadata v2.0',
+        '# CHATGPT OFFICE SKILL - Enhanced Metadata v2.0',
         '# ═══════════════════════════════════════════════════════════════════════════════',
         '',
         '# Basic Information',
@@ -540,12 +540,9 @@ def generate_enhanced_frontmatter(skill_name: str, existing: dict) -> str:
         '# AI Model Compatibility',
         'models:',
         '  recommended:',
-        '    - claude-sonnet-4',
-        '    - claude-opus-4',
+        '    - gpt-6-astra',
         '  compatible:',
-        '    - claude-3-5-sonnet',
-        '    - gpt-4',
-        '    - gpt-4o',
+        '    - gpt-6-astra',
     ])
     
     # Add MCP tools if available
@@ -627,7 +624,7 @@ def main():
     skills_dir = script_dir.parent
     
     print("═" * 60)
-    print("  Claude Office Skills - Metadata Upgrade Script v2.1")
+    print("  ChatGPT Office Skills - Metadata Upgrade Script v2.1")
     print("═" * 60)
     print()
     

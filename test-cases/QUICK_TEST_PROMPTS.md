@@ -1,6 +1,6 @@
-# Claude Desktop 快速测试提示词
+# ChatGPT Work 快速测试提示词
 
-> 复制以下提示词到 Claude Desktop 进行测试
+> 复制以下提示词到 ChatGPT Work 进行测试
 
 ---
 

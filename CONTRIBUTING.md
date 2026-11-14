@@ -1,4 +1,4 @@
-# Contributing to Claude Office Skills
+# Contributing to ChatGPT Office Skills
 
 Thank you for your interest in contributing! This project is community-driven, and we welcome skills from everyone.
 
@@ -17,8 +17,8 @@ Thank you for your interest in contributing! This project is community-driven, a
 
 - [ ] **Solves a real problem** - Something people actually need help with
 - [ ] **Contains domain knowledge** - Not just "write a contract" but actual expertise
-- [ ] **Clear instructions** - Claude knows exactly what to do
-- [ ] **Tested** - You've verified it works with Claude
+- [ ] **Clear instructions** - ChatGPT knows exactly what to do
+- [ ] **Tested** - You've verified it works with ChatGPT
 
 ### Nice to Have
 
@@ -48,7 +48,7 @@ license: MIT
 1. **Overview** - What the skill does (2-3 sentences)
 2. **How to Use** - Step-by-step instructions
 3. **Knowledge** - Domain expertise embedded in the skill
-4. **Output Format** - What Claude should produce
+4. **Output Format** - What ChatGPT should produce
 5. **Examples** - Sample interactions
 6. **Limitations** - What it can't do
 
@@ -86,8 +86,8 @@ your-skill-name/
 
 Before submitting, test your skill:
 
-1. **Copy-paste test**: Copy SKILL.md content into Claude and verify it works
-2. **Direct link test**: Use the raw GitHub URL in Claude
+1. **Copy-paste test**: Copy SKILL.md content into ChatGPT and verify it works
+2. **Direct link test**: Use the raw GitHub URL in ChatGPT
 3. **Edge case test**: Try unusual inputs to see how it handles them
 
 ## Pull Request Process
@@ -96,7 +96,7 @@ Before submitting, test your skill:
 2. **Description**: Explain what the skill does and why it's useful
 3. **Checklist**:
    - [ ] Follows the template structure
-   - [ ] Tested with Claude
+   - [ ] Tested with ChatGPT
    - [ ] No personal/sensitive information
    - [ ] Appropriate license
 
@@ -106,7 +106,7 @@ We'll review PRs for:
 
 - **Usefulness**: Does it solve a real problem?
 - **Quality**: Is the knowledge accurate and helpful?
-- **Clarity**: Can Claude follow the instructions?
+- **Clarity**: Can ChatGPT follow the instructions?
 - **Safety**: No harmful content or bad advice?
 
 ## Updating Existing Skills
@@ -143,8 +143,8 @@ Pick one and start contributing!
 
 ## Questions?
 
-- Open an [Issue](https://github.com/claude-office-skills/all-in-one-skills/issues) for bugs or feature requests
-- Start a [Discussion](https://github.com/claude-office-skills/all-in-one-skills/discussions) for questions or ideas
+- Open an [Issue](https://github.com/wealchu/skills/issues) for bugs or feature requests
+- Start a [Discussion](https://github.com/wealchu/skills/discussions) for questions or ideas
 
 ## Code of Conduct
 
@@ -159,4 +159,4 @@ Pick one and start contributing!
 
 All contributors will be listed in our README. Significant contributions may be highlighted in release notes.
 
-Thank you for helping make Claude more useful for everyone!
+Thank you for helping make ChatGPT more useful for everyone!

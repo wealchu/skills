@@ -4,7 +4,7 @@ Create professional invoices for freelancers and small businesses with proper ta
 
 ## Quick Start
 
-**Copy and paste the [SKILL.md](./SKILL.md) content into Claude, then describe your invoice needs.**
+**Copy and paste the [SKILL.md](./SKILL.md) content into ChatGPT, then describe your invoice needs.**
 
 ## What It Does
 
@@ -18,4 +18,4 @@ Create professional invoices for freelancers and small businesses with proper ta
 
 **You**: Create an invoice for 20 hours of consulting at $150/hour for Acme Corp, Net 30 terms.
 
-**Claude**: [Generates complete, formatted invoice ready to copy into your preferred tool]
+**ChatGPT**: [Generates complete, formatted invoice ready to copy into your preferred tool]

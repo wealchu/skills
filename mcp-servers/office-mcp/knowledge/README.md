@@ -209,7 +209,7 @@ interface RiskPattern {
    # 编辑 SKILL.md 引用自定义知识
    ```
 
-4. **Use in Claude Desktop**
+4. **Use in ChatGPT Work**
    ```
    使用 california-contract-review skill 审查这份合同
    ```

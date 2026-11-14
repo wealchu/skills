@@ -1,0 +1,3 @@
+# Project default; effective host configuration and access must be verified.
+model = "gpt-6-astra"
+model_provider = "openai"

@@ -4,7 +4,7 @@ Generate professional Non-Disclosure Agreements for business meetings, partnersh
 
 ## Quick Start
 
-**Copy and paste the [SKILL.md](./SKILL.md) content into Claude, then describe your situation.**
+**Copy and paste the [SKILL.md](./SKILL.md) content into ChatGPT, then describe your situation.**
 
 ## What It Does
 
@@ -18,4 +18,4 @@ Generate professional Non-Disclosure Agreements for business meetings, partnersh
 
 **You**: I need an NDA for a meeting with potential investors where I'll share our business plan.
 
-**Claude**: [Generates appropriate one-way NDA with investor-friendly terms]
+**ChatGPT**: [Generates appropriate one-way NDA with investor-friendly terms]

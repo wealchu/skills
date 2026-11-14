@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "Base risk patterns for contract review",
-  "author": "claude-office-skills",
+  "author": "wealchu",
   
   "risk_patterns": {
     "unlimited_liability": {

@@ -2,7 +2,7 @@
 name: saas-metrics
 description: "SaaS business metrics analysis - MRR, ARR, Churn, LTV, CAC, cohort analysis, and investor reporting"
 version: "1.0.0"
-author: claude-office-skills
+author: wealchu
 license: MIT
 
 category: finance
@@ -17,11 +17,9 @@ department: Finance
 
 models:
   recommended:
-    - claude-sonnet-4
-    - claude-opus-4
+    - gpt-6-astra
   compatible:
-    - gpt-4
-    - gpt-4o
+    - gpt-6-astra
 
 mcp:
   server: analytics-mcp
@@ -48,6 +46,10 @@ related_skills:
   - dcf-valuation
   - chart-designer
 ---
+
+## Model and execution requirement
+
+Use OpenAI GPT-6 Astra (`gpt-6-astra`), the highest-capability general model verified for this release. Use the strongest supported reasoning setting in the actual host; the API reference configuration uses `max`. Do not route through another model provider or silently downgrade. If this model is unavailable, report that blocker before model-dependent execution. A skill cannot switch the host model: verify the actual session selection separately. Follow the user's current account rules and task permissions. Consult the repository's `MODEL_POLICY.md` for the verified release date, official sources, and update procedure.
 
 # SaaS Metrics
 
@@ -476,4 +478,4 @@ Your SaaS business is showing healthy growth with some areas for optimization.
 
 ---
 
-*SaaS Metrics Skill - Part of Claude Office Skills*
+*SaaS Metrics Skill - Part of ChatGPT Office Skills*

@@ -1,13 +1,13 @@
 ---
 # ═══════════════════════════════════════════════════════════════════════════════
-# CLAUDE OFFICE AGENT - Content Creator v1.0
+# CHATGPT OFFICE AGENT - Content Creator v1.0
 # ═══════════════════════════════════════════════════════════════════════════════
 
 name: content-creator
 display_name: "Content Creator"
 description: "Writing, marketing content, and creative copywriting"
 version: "1.0.0"
-author: claude-office-skills
+author: wealchu
 license: MIT
 
 avatar: "✍️"
@@ -59,7 +59,15 @@ capabilities:
   - social_media_content
   - email_campaigns
   - ad_copy
+model: gpt-6-astra
+provider: openai
+reasoning_effort: max
+
 ---
+
+## Model and execution requirement
+
+Use OpenAI GPT-6 Astra (`gpt-6-astra`), the highest-capability general model verified for this release. Use the strongest supported reasoning setting in the actual host; the API reference configuration uses `max`. Do not route through another model provider or silently downgrade. If this model is unavailable, report that blocker before model-dependent execution. A skill cannot switch the host model: verify the actual session selection separately. Follow the user's current account rules and task permissions. Consult the repository's `MODEL_POLICY.md` for the verified release date, official sources, and update procedure.
 
 # ✍️ Content Creator
 
@@ -257,4 +265,4 @@ I work fluently in:
 
 ---
 
-*Built with Claude Office Skills | Words that work*
+*Built with ChatGPT Office Skills | Words that work*
