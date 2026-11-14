@@ -4,11 +4,11 @@ Analyze contracts for risks, check completeness, and get actionable recommendati
 
 ## Quick Start
 
-**Copy and paste the [SKILL.md](./SKILL.md) content into Claude, then upload your contract.**
+**Copy and paste the [SKILL.md](./SKILL.md) content into ChatGPT, then upload your contract.**
 
 Or use the direct link:
 ```
-Please use this skill: https://raw.githubusercontent.com/claude-office-skills/all-in-one-skills/main/contract-review/SKILL.md
+Please use this skill: https://raw.githubusercontent.com/wealchu/skills/main/contract-review/SKILL.md
 
 Then review my contract: [upload file]
 ```
@@ -25,7 +25,7 @@ Then review my contract: [upload file]
 
 **You**: Review this NDA. Identify the key risks.
 
-**Claude** will provide:
+**ChatGPT** will provide:
 
 ```markdown
 ## Risk Assessment
@@ -60,4 +60,4 @@ Then review my contract: [upload file]
 
 ## See Also
 
-- [Full MCP Server version](https://github.com/claude-office-skills/contract-review-skill) - For power users who want API access
+- [Full MCP Server version](https://github.com/wealchu/skills/tree/main/contract-review) - For power users who want API access

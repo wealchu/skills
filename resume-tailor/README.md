@@ -4,7 +4,7 @@ Optimize your resume for specific job applications with ATS-friendly formatting 
 
 ## Quick Start
 
-**Copy and paste the [SKILL.md](./SKILL.md) content into Claude, then share your resume and the job posting.**
+**Copy and paste the [SKILL.md](./SKILL.md) content into ChatGPT, then share your resume and the job posting.**
 
 ## What It Does
 
@@ -18,4 +18,4 @@ Optimize your resume for specific job applications with ATS-friendly formatting 
 
 **You**: Here's my resume and a job posting for Senior Product Manager at Google.
 
-**Claude**: [Provides keyword analysis, tailored resume version, and specific changes with explanations]
+**ChatGPT**: [Provides keyword analysis, tailored resume version, and specific changes with explanations]

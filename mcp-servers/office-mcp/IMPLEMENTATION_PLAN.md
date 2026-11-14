@@ -219,7 +219,7 @@ npm install pptxgenjs
 每个 Phase 完成后：
 
 1. **单元测试**: 每个工具函数独立测试
-2. **集成测试**: Claude Desktop 实际调用测试
+2. **集成测试**: ChatGPT Work 实际调用测试
 3. **文档更新**: 更新 README 和示例
 
 ### 测试文件
@@ -287,7 +287,7 @@ npm install pptxgenjs
 
 1. ✅ 所有工具函数已实现（非占位符）
 2. ✅ TypeScript 编译无错误
-3. ✅ Claude Desktop 可正常调用
+3. ✅ ChatGPT Work 可正常调用
 4. ✅ 错误处理完善
 5. ✅ 文档已更新
 

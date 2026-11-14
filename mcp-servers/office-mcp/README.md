@@ -2,7 +2,6 @@
 
 > The best tools for AI Skills - providing document operations as MCP tools.
 
-[![npm](https://img.shields.io/npm/v/@claude-office-skills/office-mcp)](https://www.npmjs.com/package/@claude-office-skills/office-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
@@ -83,68 +82,25 @@
 
 ---
 
-## Installation
+## Installation and connection
 
-### Using npx (recommended)
-
-```bash
-npx @claude-office-skills/office-mcp
-```
-
-### Using npm
+Build this fork from reviewed source; `@wealchu/chatgpt-office-mcp` is private and is not claimed to be published on npm.
 
 ```bash
-npm install -g @claude-office-skills/office-mcp
-office-mcp
-```
-
-### From source
-
-```bash
-git clone https://github.com/claude-office-skills/skills
-cd skills/mcp-servers/office-mcp
-npm install
+cd mcp-servers/office-mcp
+npm ci
 npm run build
-npm start
+node dist/index.js
 ```
 
----
+This server uses stdio. Configure the actual absolute path in an authorized Codex host:
 
-## Configuration
-
-### Claude Desktop
-
-Add to your `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "office-mcp": {
-      "command": "npx",
-      "args": ["@claude-office-skills/office-mcp"]
-    }
-  }
-}
+```bash
+codex mcp add office-mcp -- node /absolute/path/to/skills/mcp-servers/office-mcp/dist/index.js
 ```
 
-### Cursor / VS Code
+ChatGPT web requires a supported hosted MCP/plugin connection; see [configuration](../../CHATGPT_CONFIGURATION.md). The server supplies document tools and does not select or call an LLM. The host must use the verified model from [MODEL_POLICY.md](../../MODEL_POLICY.md).
 
-Add to your MCP settings:
-
-```json
-{
-  "mcp": {
-    "servers": {
-      "office-mcp": {
-        "command": "npx",
-        "args": ["@claude-office-skills/office-mcp"]
-      }
-    }
-  }
-}
-```
-
----
 
 ## How Skills Use MCP Tools
 
@@ -258,7 +214,7 @@ npm run lint
 
 ## Related Projects
 
-- [Claude Office Skills](https://github.com/claude-office-skills/skills) - The Skills repository
+- [ChatGPT Office Skills](https://github.com/wealchu/skills) - The Skills repository
 - [MCP Protocol](https://modelcontextprotocol.io) - Official MCP specification
 - [MCP Servers](https://github.com/modelcontextprotocol/servers) - Official MCP servers
 
@@ -270,4 +226,4 @@ MIT License - see [LICENSE](../../LICENSE)
 
 ---
 
-**Built for AI Skills, by the Claude Office Skills community.**
+**Built for AI Skills, by the ChatGPT Office Skills community.**

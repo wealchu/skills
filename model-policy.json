@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "name": "chatgpt-office-skills",
+  "provider": "openai",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "max",
+  "endpoint": "https://api.openai.com/v1/responses",
+  "fallback_models": [],
+  "verified_on": "2026-11-13",
+  "verification_timezone": "America/Toronto",
+  "sources": [
+    "https://developers.openai.com/api/docs/models/gpt-6-astra",
+    "https://developers.openai.com/api/docs/guides/model-selection",
+    "https://developers.openai.com/api/docs/guides/latest-model"
+  ],
+  "selection_policy": "Highest-capability general OpenAI model supported by the task and actual account; explicitly reverify and update the pinned model when official guidance changes. Never infer rank from version numbering."
+}

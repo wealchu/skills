@@ -103,9 +103,9 @@
 
 ---
 
-## Testing in Claude Desktop
+## Testing in ChatGPT Work
 
-After restarting Claude Desktop, test with:
+After restarting ChatGPT Work, test with:
 
 ```
 帮我提取这个PDF的文本: [upload PDF]
@@ -159,4 +159,4 @@ All functions include:
 
 ---
 
-**Built for Claude Office Skills - Now with real PDF power! 🔥**
+**Built for ChatGPT Office Skills - Now with real PDF power! 🔥**

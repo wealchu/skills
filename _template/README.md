@@ -30,11 +30,11 @@ This directory contains a template for creating new skills.
 Before submitting, test your skill:
 
 1. Copy the SKILL.md content
-2. Paste into a new Claude conversation
+2. Paste into a new ChatGPT conversation
 3. Upload a sample document
 4. Verify it works as expected
 5. Test edge cases
 
 ## Questions?
 
-Open a [Discussion](https://github.com/claude-office-skills/all-in-one-skills/discussions) or [Issue](https://github.com/claude-office-skills/all-in-one-skills/issues).
+Open a [Discussion](https://github.com/wealchu/skills/discussions) or [Issue](https://github.com/wealchu/skills/issues).

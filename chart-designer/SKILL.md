@@ -1,12 +1,12 @@
 ---
 # ═══════════════════════════════════════════════════════════════════════════════
-# CLAUDE OFFICE SKILL - Chart Designer
+# CHATGPT OFFICE SKILL - Chart Designer
 # ═══════════════════════════════════════════════════════════════════════════════
 
 name: chart-designer
 description: "Design effective data visualizations and charts. Generate chart configurations for ECharts, Chart.js, and other libraries. Create dashboards and reports."
 version: "1.0.0"
-author: claude-office-skills
+author: wealchu
 license: MIT
 
 category: visualization
@@ -20,12 +20,9 @@ department: Data/Analytics
 
 models:
   recommended:
-    - claude-sonnet-4
-    - claude-opus-4
+    - gpt-6-astra
   compatible:
-    - claude-3-5-sonnet
-    - gpt-4
-    - gpt-4o
+    - gpt-6-astra
 
 mcp:
   server: office-mcp
@@ -50,6 +47,10 @@ related_skills:
   - infographic
   - report-generator
 ---
+
+## Model and execution requirement
+
+Use OpenAI GPT-6 Astra (`gpt-6-astra`), the highest-capability general model verified for this release. Use the strongest supported reasoning setting in the actual host; the API reference configuration uses `max`. Do not route through another model provider or silently downgrade. If this model is unavailable, report that blocker before model-dependent execution. A skill cannot switch the host model: verify the actual session selection separately. Follow the user's current account rules and task permissions. Consult the repository's `MODEL_POLICY.md` for the verified release date, official sources, and update procedure.
 
 # Chart Designer Skill
 
@@ -415,4 +416,4 @@ If this doesn't work well, consider:
 
 ---
 
-*Built by the Claude Office Skills community. Contributions welcome!*
+*Built by the ChatGPT Office Skills community. Contributions welcome!*

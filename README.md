@@ -1,6 +1,6 @@
-# Claude Office Skills
+# ChatGPT Office Skills
 
-> A curated collection of practical Claude Skills for real-world office tasks. Zero setup required.
+> A curated collection of practical ChatGPT Skills for real-world office tasks. Use verified skills and tools in ChatGPT Work or Codex.
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -33,7 +33,7 @@ cd mcp-servers/office-mcp && npm install && npm run build
 
 ## 📚 NEW: Extensible Knowledge Base
 
-**Domain knowledge as structured data** - customize Claude's expertise for your jurisdiction and industry.
+**Domain knowledge as structured data** - customize ChatGPT's expertise for your jurisdiction and industry.
 
 | Layer | Description | Customizable |
 |-------|-------------|--------------|
@@ -63,21 +63,17 @@ knowledge:
 
 ## 🤖 NEW: Pre-built Agents
 
-**5 ready-to-deploy AI personas** with curated skills, knowledge, and personality.
+**5 agent instruction sets** with curated skills, knowledge, and personality. Load their dependencies and verify the host configuration before use.
 
 | Agent | Role | Key Skills | Deploy To |
 |-------|------|------------|-----------|
-| ⚖️ [Legal Specialist](./agents/legal-specialist/) | Contract Review | contract-review, nda-generator | All platforms |
-| 📊 [Data Analyst](./agents/data-analyst/) | Excel & Finance | data-analysis, dcf-valuation | All platforms |
-| 📋 [Admin Assistant](./agents/admin-assistant/) | Email & Calendar | email-drafter, meeting-notes | All platforms |
-| 🔬 [Research Analyst](./agents/research-analyst/) | Deep Research | deep-research, company-research | All platforms |
-| ✍️ [Content Creator](./agents/content-creator/) | Writing & Marketing | content-writer, seo-optimizer | All platforms |
+| ⚖️ [Legal Specialist](./agents/legal-specialist/) | Contract Review | contract-review, nda-generator | Configured ChatGPT host |
+| 📊 [Data Analyst](./agents/data-analyst/) | Excel & Finance | data-analysis, dcf-valuation | Configured ChatGPT host |
+| 📋 [Admin Assistant](./agents/admin-assistant/) | Email & Calendar | email-drafter, meeting-notes | Configured ChatGPT host |
+| 🔬 [Research Analyst](./agents/research-analyst/) | Deep Research | deep-research, company-research | Configured ChatGPT host |
+| ✍️ [Content Creator](./agents/content-creator/) | Writing & Marketing | content-writer, seo-optimizer | Configured ChatGPT host |
 
-**Quick Deploy:**
-```bash
-# Install agent to Moltbot
-curl -fsSL https://molt.bot/install | bash -s -- --agent legal-specialist
-```
+**Usage:** Read the selected AGENT.md with its required skills in the configured ChatGPT host.
 
 [📖 All Agents](./agents/) | [🛠️ Create Custom Agent](./agents/_template/)
 
@@ -85,7 +81,7 @@ curl -fsSL https://molt.bot/install | bash -s -- --agent legal-specialist
 
 ## Contents
 
-- [What Are Claude Skills?](#what-are-claude-skills)
+- [What Are ChatGPT Skills?](#what-are-chatgpt-skills)
 - [Getting Started](#getting-started)
 - [Skills](#skills)
   - [Legal & Contracts](#legal--contracts)
@@ -94,7 +90,7 @@ curl -fsSL https://molt.bot/install | bash -s -- --agent legal-specialist
   - [Communication & Writing](#communication--writing)
   - [Productivity](#productivity)
   - [PDF Power Tools](#pdf-power-tools)
-  - [Document Processing (Official)](#document-processing-official)
+  - [Document Guides](#document-guides)
   - [Core Document Skills](#core-document-skills)
   - [Document Conversion Skills](#document-conversion-skills)
   - [Document Parsing & OCR Skills](#document-parsing--ocr-skills)
@@ -124,11 +120,11 @@ curl -fsSL https://molt.bot/install | bash -s -- --agent legal-specialist
 
 ---
 
-## What Are Claude Skills?
+## What Are ChatGPT Skills?
 
-**Claude Skills** are customizable workflows that teach Claude how to perform specific tasks according to your unique requirements. Skills enable Claude to execute tasks in a repeatable, standardized manner.
+**ChatGPT Skills** are customizable workflows that teach ChatGPT how to perform specific tasks according to your unique requirements. Skills enable ChatGPT to execute tasks in a repeatable, standardized manner.
 
-Unlike generic AI prompts, these skills contain **embedded domain knowledge** and **professional workflows** that make Claude genuinely useful for business tasks.
+Unlike generic AI prompts, these skills contain **embedded domain knowledge** and **professional workflows** that make ChatGPT genuinely useful for business tasks.
 
 **This repository focuses on Office & Business scenarios:**
 - Contracts, invoices, proposals
@@ -140,69 +136,34 @@ Unlike generic AI prompts, these skills contain **embedded domain knowledge** an
 
 ## Getting Started
 
-### Using Skills in Claude.ai
+### ChatGPT Work and Codex
 
-1. Click any skill below
-2. Copy the `SKILL.md` content
-3. Paste into your Claude conversation
-4. Upload your document and ask for help
+Follow [CHATGPT_CONFIGURATION.md](CHATGPT_CONFIGURATION.md). Use **GPT-6 Astra** for model-dependent work and verify the actual host selection. [MODEL_POLICY.md](MODEL_POLICY.md) records the official sources and no-fallback policy.
 
-### Using Skills in Claude Code
+Read the required SKILL.md and dependencies through the connected repository, or install selected skills with the supported personal-skill flow. Connecting a repository, attaching an index, and installing a skill are different operations.
+
+For Codex workspace exports, inspect the selection before copying:
 
 ```bash
-# Place the skill in your skills directory
-mkdir -p ~/.config/claude-code/skills/
-cp -r contract-review ~/.config/claude-code/skills/
-
-# Start Claude Code - skill loads automatically
-claude
+bash install.sh --skill contract-review --dry-run
+bash install.sh --skill contract-review
 ```
 
-### Using Skills via Direct Link
-
-```
-Please use this skill: https://raw.githubusercontent.com/claude-office-skills/skills/main/contract-review/SKILL.md
-
-Then review my contract: [upload file]
-```
-
-### Using Skills via API
+### OpenAI API
 
 ```python
-import anthropic
+from pathlib import Path
+from scripts.openai_runner import build_request, send_request, output_text
 
-client = anthropic.Anthropic(api_key="your-api-key")
-
-# Load skill content
-skill_content = open("contract-review/SKILL.md").read()
-
-response = client.messages.create(
-    model="claude-sonnet-4-20250514",
-    system=skill_content,
-    messages=[{"role": "user", "content": "Review this contract..."}]
+request = build_request(
+    Path("contract-review/SKILL.md").read_text(),
+    "Review this contract: [authorized contract text]",
 )
+response = send_request(request)
+print(output_text(response))
 ```
 
-### Using Skills with Moltbot (Clawdbot)
-
-One-click install all 136+ Office Skills to your [Moltbot](https://molt.bot):
-
-```bash
-# Install ALL skills
-curl -fsSL https://raw.githubusercontent.com/claude-office-skills/skills/main/install.sh | bash
-
-# Install by category
-curl -fsSL https://raw.githubusercontent.com/claude-office-skills/skills/main/install.sh | bash -s -- --category legal
-curl -fsSL https://raw.githubusercontent.com/claude-office-skills/skills/main/install.sh | bash -s -- --category pdf
-curl -fsSL https://raw.githubusercontent.com/claude-office-skills/skills/main/install.sh | bash -s -- --category workflow
-```
-
-Available categories: `legal`, `hr`, `finance`, `pdf`, `workflow`, `template`, `doc`, `conversion`, `parsing`, `slide`, `productivity`, `marketing`
-
-Or install a single skill via chat:
-```
-Install this skill: https://raw.githubusercontent.com/claude-office-skills/skills/main/contract-review/SKILL.md
-```
+The shared runner selects the verified model and Responses endpoint from `model-policy.json`; credentials come from `OPENAI_API_KEY`. It never falls back to another model.
 
 ---
 
@@ -247,8 +208,8 @@ Install this skill: https://raw.githubusercontent.com/claude-office-skills/skill
 
 | Skill | Description | Department | Link |
 |-------|-------------|------------|------|
-| **Internal Comms** | Status reports, newsletters, FAQs | Ops | [View](./official-skills/internal-comms.md) |
-| **Doc Co-authoring** | Structured workflow for writing documentation | All | [View](./official-skills/doc-coauthoring.md) |
+| **Internal Comms** | Status reports, newsletters, FAQs | Ops | [View](./document-guides/internal-comms.md) |
+| **Doc Co-authoring** | Structured workflow for writing documentation | All | [View](./document-guides/doc-coauthoring.md) |
 | **Email Drafter** | Professional email templates and responses | All | [View](./email-drafter/) |
 | **Email Classifier** | Auto-categorize emails by type and priority | All | [View](./email-classifier/) |
 | **Suspicious Email** | Analyze emails for phishing and scam indicators | Security | [View](./suspicious-email/) |
@@ -277,16 +238,16 @@ Comprehensive PDF manipulation skills inspired by [Stirling-PDF](https://github.
 | **PDF Compress** | Reduce PDF file size while maintaining quality | All | [View](./pdf-compress/) |
 | **PDF Watermark** | Add watermarks, page numbers, headers/footers | All | [View](./pdf-watermark/) |
 
-### Document Processing (Official)
+### Document Guides
 
-Official Anthropic skills for working with Office documents. See [official-skills/](./official-skills/) for details.
+Fork-maintained guides for document operations. See [document-guides/](./document-guides/) and use the actual installed tools. These are not official OpenAI skills.
 
 | Skill | Description | Department | License |
 |-------|-------------|------------|---------|
-| **DOCX** | Word document creation, editing, tracked changes | All | [Source-available](./official-skills/docx-guide.md) |
-| **XLSX** | Excel spreadsheets, formulas, financial models | Finance/Ops | [Source-available](./official-skills/xlsx-guide.md) |
-| **PPTX** | PowerPoint presentations | Marketing/All | [Source-available](./official-skills/pptx-guide.md) |
-| **PDF** | PDF processing, forms, extraction | All | [Source-available](./official-skills/pdf-guide.md) |
+| **DOCX** | Word document creation, editing, tracked changes | All | [Source-available](./document-guides/docx-guide.md) |
+| **XLSX** | Excel spreadsheets, formulas, financial models | Finance/Ops | [Source-available](./document-guides/xlsx-guide.md) |
+| **PPTX** | PowerPoint presentations | Marketing/All | [Source-available](./document-guides/pptx-guide.md) |
+| **PDF** | PDF processing, forms, extraction | All | [Source-available](./document-guides/pdf-guide.md) |
 
 ### Core Document Skills
 
@@ -564,7 +525,7 @@ license: MIT
 - **Specific**: Solves one clear problem
 - **Knowledge-rich**: Contains real domain expertise
 - **Actionable**: Clear steps and outputs
-- **Tested**: Actually works with Claude
+- **Tested**: Actually works with ChatGPT
 - **Documented**: Examples and edge cases
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
@@ -573,24 +534,14 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ## Architecture
 
-![Claude Office Skills Architecture](./architecture.png)
+| Layer | Responsibility |
+|---|---|
+| SKILL.md and AGENT.md | Task instructions and required evidence |
+| model-policy.json | Pinned OpenAI model, reasoning, endpoint, and no-fallback policy |
+| scripts/openai_runner.py | Validated text/vision Responses requests |
+| Office MCP | Document operations through an authorized MCP host |
 
-| Component | Description | Users |
-|-----------|-------------|-------|
-| **Community Hub** (this repo) | Zero setup - copy & paste SKILL.md | 90% of users |
-| **Advanced** | MCP Server + HTTP API + Cloudflare | Power users |
-
----
-
-## Advanced Usage
-
-For power users who need programmatic access or integrations:
-
-| Repository | Description | Features |
-|------------|-------------|----------|
-| [contract-review-skill](https://github.com/claude-office-skills/contract-review-skill) | Full MCP server + HTTP API | Claude Desktop, Cloudflare, CI/CD |
-
----
+See [configuration](CHATGPT_CONFIGURATION.md) for the distinction between stdio, a hosted plugin, and the selected ChatGPT model.
 
 ## Contributing
 
@@ -619,25 +570,12 @@ Future skill ideas:
 
 ## Resources
 
-### Official Documentation
+- [GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra)
+- [OpenAI model selection](https://developers.openai.com/api/docs/guides/model-selection)
+- [OpenAI migration guidance](https://developers.openai.com/api/docs/guides/latest-model)
+- [ChatGPT and Codex MCP](https://learn.chatgpt.com/docs/extend/mcp)
+- [Codex configuration](https://learn.chatgpt.com/docs/config-file/config-basic)
 
-- [Claude Skills Overview](https://www.anthropic.com/news/agent-skills) - Official announcement
-- [Skills User Guide](https://support.claude.com/en/articles/12512180-using-skills-in-claude) - How to use skills
-- [Creating Custom Skills](https://support.claude.com/en/articles/12512198-creating-custom-skills) - Development guide
-- [Agent Skills Blog](https://anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) - Engineering deep dive
-
-### Community Resources
-
-- [Anthropic Skills Repository](https://github.com/anthropics/skills) - Official example skills
-- [Awesome Claude Skills](https://github.com/ComposioHQ/awesome-claude-skills) - Community curation (27k+ stars)
-- [Awesome n8n Templates](https://github.com/enescingoz/awesome-n8n-templates) - Workflow automation inspiration
-
-### Related Projects
-
-- [MCP Protocol](https://modelcontextprotocol.io) - Model Context Protocol specification
-- [Claude Code](https://claude.ai/code) - Claude's coding environment
-
----
 
 ## License
 
@@ -647,15 +585,6 @@ Individual skills may have different licenses - check each skill's folder for sp
 
 ---
 
-## Acknowledgments
+## Provenance
 
-Inspired by:
-- [Anthropic Skills](https://github.com/anthropics/skills) - Official Claude Skills
-- [Awesome Claude Skills](https://github.com/ComposioHQ/awesome-claude-skills) - Community curation
-- [Awesome n8n Templates](https://github.com/enescingoz/awesome-n8n-templates) - Workflow automation
-
----
-
-**Made with Claude, for everyone who works with documents.**
-
-*Note: Claude Skills work across Claude.ai, Claude Code, and the Claude API. Once you create a skill, it's portable across all platforms.*
+See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for retained original attribution. This fork is maintained for ChatGPT; source migration does not prove installation or a successful live model call.

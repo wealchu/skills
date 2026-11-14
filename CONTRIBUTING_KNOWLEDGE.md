@@ -1,6 +1,6 @@
 # Contributing Knowledge
 
-This guide explains how to contribute domain knowledge to the Claude Office Skills project.
+This guide explains how to contribute domain knowledge to the ChatGPT Office Skills project.
 
 ## Knowledge Architecture
 
@@ -308,9 +308,9 @@ _shared/knowledge/domain/healthcare/
 
 ## Questions?
 
-- Open an issue: [GitHub Issues](https://github.com/claude-office-skills/skills/issues)
-- Join discussions: [GitHub Discussions](https://github.com/claude-office-skills/skills/discussions)
+- Open an issue: [GitHub Issues](https://github.com/wealchu/skills/issues)
+- Join discussions: [GitHub Discussions](https://github.com/wealchu/skills/discussions)
 
 ---
 
-**Thank you for contributing!** Your domain expertise helps make Claude more useful for everyone.
+**Thank you for contributing!** Your domain expertise helps make ChatGPT more useful for everyone.

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Batch Create/Update Claude Office Skills
+Batch Create/Update ChatGPT Office Skills
 Based on architecture diagram: Skills = Domain Knowledge + Templates + Scripts
 """
 
@@ -52,40 +52,21 @@ Trigger → Action → Action → Output
 
 ### Workflow Example: Contract Review Pipeline
 
+Use folder intake → PDF extraction → OpenAI Responses HTTP request → reviewed report storage. Outbound notification remains subject to explicit authorization.
+
+Configure an HTTP Request step using POST to `https://api.openai.com/v1/responses`, JSON content type, and an OpenAI credential stored in the workflow's credential store. The version-specific n8n node must be checked before importing a workflow; this is a request-body example, not an importable workflow export.
+
 ```json
 {
-  "nodes": [
-    {
-      "name": "Watch Folder",
-      "type": "n8n-nodes-base.localFileTrigger",
-      "parameters": {
-        "path": "/contracts/incoming",
-        "events": ["add"]
-      }
-    },
-    {
-      "name": "Extract Text",
-      "type": "n8n-nodes-base.readPdf"
-    },
-    {
-      "name": "AI Review",
-      "type": "n8n-nodes-base.anthropic",
-      "parameters": {
-        "model": "claude-sonnet-4-20250514",
-        "prompt": "Review this contract for risks..."
-      }
-    },
-    {
-      "name": "Save Report",
-      "type": "n8n-nodes-base.writeFile"
-    },
-    {
-      "name": "Notify Team",
-      "type": "n8n-nodes-base.slack"
-    }
-  ]
+  "model": "gpt-6-astra",
+  "reasoning": {"effort": "max"},
+  "instructions": "Review the supplied contract; distinguish facts, risks, and missing evidence.",
+  "input": "[authorized extracted contract text]"
 }
 ```
+
+Read output_text content from completed message items in the response's `output` array. On authentication, model-access, rate-limit, or request errors, report failure; do not switch providers or models.
+
 
 ### Self-Hosting vs Cloud
 
@@ -119,7 +100,7 @@ docker run -it --rm \\
             "url": "https://github.com/modelcontextprotocol/servers",
             "stars": "40k+"
         },
-        "overview": """This skill provides access to 1200+ MCP (Model Context Protocol) servers - standardized tools that extend AI capabilities. Connect Claude to filesystems, databases, APIs, and document processing tools.""",
+        "overview": """This skill provides access to 1200+ MCP (Model Context Protocol) servers - standardized tools that extend AI capabilities. Connect ChatGPT to filesystems, databases, APIs, and document processing tools.""",
         "use_cases": [
             "Access local filesystem to read/write documents",
             "Query databases for data analysis",
@@ -130,7 +111,7 @@ docker run -it --rm \\
 ### MCP Architecture
 
 ```
-Claude ←→ MCP Server ←→ External Resource
+ChatGPT ←→ MCP Server ←→ External Resource
         (Protocol)      (Files, APIs, DBs)
 ```
 
@@ -145,24 +126,8 @@ Claude ←→ MCP Server ←→ External Resource
 
 ### Configuration Example
 
-```json
-{
-  "mcpServers": {
-    "filesystem": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "/path/to/documents"
-      ]
-    },
-    "google-drive": {
-      "command": "npx",
-      "args": ["-y", "@anthropic/mcp-google-drive"]
-    }
-  }
-}
-```
+Use the installed Google Drive connection for authorized Drive tasks. Do not install a guessed MCP package. For this repository's document server, follow CHATGPT_CONFIGURATION.md and verify the actual connection in the chosen host.
+
 
 ### MCP Tool Discovery
 
@@ -174,7 +139,7 @@ Browse available servers:
 ### Using MCP in Skills
 
 ```python
-# MCP tools become available to Claude automatically
+# MCP tools become available to ChatGPT automatically
 # Example: filesystem MCP provides these tools:
 
 # read_file(path) - Read file contents
@@ -197,10 +162,10 @@ Browse available servers:
         "tags": ["mcp", "office", "word", "excel", "powerpoint"],
         "library": {
             "name": "Office MCP",
-            "url": "https://github.com/anthropics/skills",
+            "url": "https://github.com/wealchu/skills",
             "stars": "N/A"
         },
-        "overview": """This skill wraps Office document operations as MCP tools, allowing Claude to create, edit, and manipulate Word, Excel, and PowerPoint files with standardized interfaces.""",
+        "overview": """This skill wraps Office document operations as MCP tools, allowing ChatGPT to create, edit, and manipulate Word, Excel, and PowerPoint files with standardized interfaces.""",
         "use_cases": [
             "Create Word documents with AI-generated content",
             "Build Excel spreadsheets with formulas",
@@ -217,7 +182,7 @@ Browse available servers:
 | `create_xlsx` | Data, formulas | .xlsx file |
 | `create_pptx` | Slides, layout | .pptx file |
 
-### Integration with Claude Skills
+### Integration with ChatGPT Skills
 
 ```markdown
 # Example: Combining Skills + MCP
@@ -271,7 +236,7 @@ async def create_xlsx(data: list, output_path: str):
         "tags": ["batch", "bulk", "parallel", "automation"],
         "library": {
             "name": "Custom",
-            "url": "https://github.com/claude-office-skills/skills",
+            "url": "https://github.com/wealchu/skills",
             "stars": "N/A"
         },
         "overview": """This skill enables efficient bulk processing of documents - convert, transform, extract, or analyze hundreds of files with parallel execution and progress tracking.""",
@@ -380,7 +345,7 @@ class BatchProcessor:
         "tags": ["pipeline", "workflow", "chain", "automation"],
         "library": {
             "name": "Custom",
-            "url": "https://github.com/claude-office-skills/skills",
+            "url": "https://github.com/wealchu/skills",
             "stars": "N/A"
         },
         "overview": """This skill enables building document processing pipelines - chain multiple operations (extract, transform, convert) into reusable workflows with data flowing between stages.""",
@@ -813,10 +778,10 @@ def create_skill_md(skill_config: dict) -> str:
     content = f"""---
 name: {skill_config['name']}
 description: {skill_config['description']}
-author: claude-office-skills
+author: wealchu
 version: "1.0"
 tags: {skill_config['tags']}
-models: [claude-sonnet-4, claude-opus-4]
+models: [gpt-6-astra]
 tools: [computer, code_execution, file_operations]
 library:
   name: {skill_config['library']['name']}
@@ -825,6 +790,10 @@ library:
 ---
 
 # {skill_config['name'].replace('-', ' ').title()} Skill
+
+## Model requirement
+
+Use OpenAI GPT-6 Astra (gpt-6-astra), with max reasoning where supported. Verify the host selection; stop model-dependent work if unavailable, without fallback. Read MODEL_POLICY.md.
 
 ## Overview
 
@@ -865,7 +834,7 @@ pip install python-docx openpyxl python-pptx reportlab jinja2
 ## Resources
 
 - [{skill_config['library']['name']} Repository]({skill_config['library']['url']})
-- [Claude Office Skills Hub](https://github.com/claude-office-skills/skills)
+- [ChatGPT Office Skills Hub](https://github.com/wealchu/skills)
 """
     
     return content
@@ -874,7 +843,7 @@ def main():
     """Create all missing skills."""
     
     print("=" * 60)
-    print("Claude Office Skills - Batch Creator")
+    print("ChatGPT Office Skills - Batch Creator")
     print(f"Creating {len(SKILLS_TO_CREATE)} skills...")
     print("=" * 60)
     

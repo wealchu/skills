@@ -1,13 +1,13 @@
 ---
 # ═══════════════════════════════════════════════════════════════════════════════
-# CLAUDE OFFICE SKILL - Enhanced Metadata v2.0
+# CHATGPT OFFICE SKILL - Enhanced Metadata v2.0
 # ═══════════════════════════════════════════════════════════════════════════════
 
 # Basic Information
 name: proposal-writer
 description: "Create compelling business proposals that win deals and partnerships"
 version: "1.0.0"
-author: Claude Office Skills Contributors
+author: wealchu (ChatGPT adaptation; see THIRD_PARTY_NOTICES.md)
 license: MIT
 
 # Categorization
@@ -22,12 +22,9 @@ department: Sales
 # AI Model Compatibility
 models:
   recommended:
-    - claude-sonnet-4
-    - claude-opus-4
+    - gpt-6-astra
   compatible:
-    - claude-3-5-sonnet
-    - gpt-4
-    - gpt-4o
+    - gpt-6-astra
 
 # MCP Tools Integration
 mcp:
@@ -48,6 +45,10 @@ languages:
   - en
   - zh
 ---
+
+## Model and execution requirement
+
+Use OpenAI GPT-6 Astra (`gpt-6-astra`), the highest-capability general model verified for this release. Use the strongest supported reasoning setting in the actual host; the API reference configuration uses `max`. Do not route through another model provider or silently downgrade. If this model is unavailable, report that blocker before model-dependent execution. A skill cannot switch the host model: verify the actual session selection separately. Follow the user's current account rules and task permissions. Consult the repository's `MODEL_POLICY.md` for the verified release date, official sources, and update procedure.
 
 # Proposal Writer
 

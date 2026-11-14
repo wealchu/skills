@@ -1,23 +1,10 @@
-# Claude Office Skills - 本地测试指南
+# ChatGPT Office Skills - 本地测试指南
 
 ## 测试前配置
 
-### Claude Desktop MCP 配置
+### ChatGPT Work / Codex connection
 
-编辑 `~/Library/Application Support/Claude/claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "office-skills": {
-      "command": "node",
-      "args": ["/Users/kingsoft/Desktop/claude-office-skills/mcp-servers/office-mcp/dist/index.js"]
-    }
-  }
-}
-```
-
-> 注意：需要先编译 `npm run build`，或使用 `npx ts-node` 直接运行
+Follow [CHATGPT_CONFIGURATION.md](../CHATGPT_CONFIGURATION.md), verify the actual model and MCP connection, then run the tests below. A desktop configuration file does not configure ChatGPT web.
 
 ---
 

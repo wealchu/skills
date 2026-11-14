@@ -1,4 +1,4 @@
-# Claude Office Agents
+# ChatGPT Office Agents
 
 > Pre-configured AI personas with specialized skills for specific roles.
 
@@ -28,39 +28,20 @@ Think of agents as "digital employees" you can deploy to handle specific tasks.
 
 Browse the agents above and find one that matches your needs.
 
-### 2. Deploy to Your Platform
+### 2. Load in the supported host
 
-**WhatsApp/Telegram (via Moltbot)**:
+Use [ChatGPT configuration](../CHATGPT_CONFIGURATION.md) and select GPT-6 Astra. Read the chosen AGENT.md and the listed skills, knowledge files, and tool requirements. Agent files are specifications, not a verified deployment.
+
+For the OpenAI API, assemble the required dependencies into the instructions before calling the shared runner. The runner does not automatically load referenced files or execute MCP tools.
+
 ```bash
-# Install an agent
-curl -fsSL https://molt.bot/install | bash -s -- --agent legal-specialist
+python3 scripts/openai_runner.py --instructions prepared-agent-instructions.md --input task.txt --dry-run
 ```
 
-**Claude Desktop**:
-```json
-{
-  "agents": {
-    "legal-specialist": {
-      "path": "./agents/legal-specialist/AGENT.md"
-    }
-  }
-}
-```
-
-**API**:
-```python
-import anthropic
-
-agent_config = open("agents/legal-specialist/AGENT.md").read()
-response = client.messages.create(
-    system=agent_config,
-    messages=[{"role": "user", "content": "Review this contract..."}]
-)
-```
 
 ### 3. Start Chatting
 
-The agent will respond according to its personality and use its skills automatically.
+Verify that the host loaded the persona and required skills with a representative task; listing them in AGENT.md does not load them automatically.
 
 ## Agent vs Skill
 
@@ -87,16 +68,14 @@ Configure:
 - **Knowledge**: Domain expertise to include
 - **Platforms**: Where to deploy
 
-### 3. Test Locally
+### 3. Validate the configuration
 
-```bash
-# Load agent in Claude Desktop or API
-claude --agent ./agents/my-agent/AGENT.md
-```
+Verify skill and knowledge paths, available tools, selected model, and representative outputs in the authorized host. Use the runner's dry-run first; separately record any live test.
 
-### 4. Deploy
+### 4. Use in the configured host
 
-Deploy to your preferred platform (WhatsApp, Telegram, Slack, etc.)
+Connect only approved tools and communication channels. A persona description does not authorize sending messages or modifying external records.
+
 
 ## Agent Architecture
 
@@ -129,4 +108,4 @@ We welcome new agent configurations! See [CONTRIBUTING.md](../CONTRIBUTING.md) f
 
 ---
 
-**Made with Claude Office Skills.**
+**Made with ChatGPT Office Skills.**

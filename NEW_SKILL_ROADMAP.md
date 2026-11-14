@@ -1,4 +1,4 @@
-# Claude Office Skills - Extended Roadmap (Phase 3 Completed)
+# ChatGPT Office Skills - Extended Roadmap (Phase 3 Completed)
 
 > Extended from 30 skills to **136+ skills** based on n8n workflows, MCP ecosystem, and OpenClaw integrations
 
@@ -6,7 +6,7 @@
 
 ## 📊 Open Source Project Mapping
 
-This roadmap maps high-star GitHub projects, n8n workflow templates, and AI agent ecosystems to Claude Skills, creating a comprehensive document processing and automation ecosystem.
+This roadmap maps high-star GitHub projects, n8n workflow templates, and AI agent ecosystems to ChatGPT Skills, creating a comprehensive document processing and automation ecosystem.
 
 ### Summary Statistics
 - **Open Source Projects**: 100+
@@ -155,10 +155,10 @@ skill-name/
 ---
 name: skill-name
 description: One-line description
-author: claude-office-skills
+author: wealchu
 version: "1.0"
 tags: [category, library-name, use-case]
-models: [claude-sonnet-4, claude-opus-4]
+models: [gpt-6-astra]
 tools: [computer, code_execution, file_operations]
 library:
   name: library-name

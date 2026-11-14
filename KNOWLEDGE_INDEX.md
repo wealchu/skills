@@ -1,6 +1,6 @@
 # Knowledge Index
 
-A catalog of all available knowledge files in the Claude Office Skills project.
+A catalog of all available knowledge files in the ChatGPT Office Skills project.
 
 ---
 
@@ -29,7 +29,7 @@ These files provide foundational knowledge used by multiple skills.
 
 | File | Jurisdiction/Topic | Author | Patterns |
 |------|-------------------|--------|----------|
-| [california_employment.json](./mcp-servers/office-mcp/knowledge/custom/california_employment.json) | California, USA | claude-office-skills | 7 |
+| [california_employment.json](./mcp-servers/office-mcp/knowledge/custom/california_employment.json) | California, USA | chatgpt-office-skills | 7 |
 
 ### Finance
 

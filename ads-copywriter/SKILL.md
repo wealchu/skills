@@ -2,7 +2,7 @@
 name: ads-copywriter
 description: "Multi-platform ad copy generation for Google Ads, Meta/Facebook, TikTok, LinkedIn with A/B testing variants"
 version: "1.0.0"
-author: claude-office-skills
+author: wealchu
 license: MIT
 
 category: marketing
@@ -16,11 +16,9 @@ department: Marketing
 
 models:
   recommended:
-    - claude-sonnet-4
-    - claude-opus-4
+    - gpt-6-astra
   compatible:
-    - gpt-4
-    - gpt-4o
+    - gpt-6-astra
 
 capabilities:
   - ad_copy_generation
@@ -38,6 +36,10 @@ related_skills:
   - content-writer
   - landing-page
 ---
+
+## Model and execution requirement
+
+Use OpenAI GPT-6 Astra (`gpt-6-astra`), the highest-capability general model verified for this release. Use the strongest supported reasoning setting in the actual host; the API reference configuration uses `max`. Do not route through another model provider or silently downgrade. If this model is unavailable, report that blocker before model-dependent execution. A skill cannot switch the host model: verify the actual session selection separately. Follow the user's current account rules and task permissions. Consult the repository's `MODEL_POLICY.md` for the verified release date, official sources, and update procedure.
 
 # Ads Copywriter
 
@@ -403,4 +405,4 @@ No credit card required. Cancel anytime.
 
 ---
 
-*Ads Copywriter Skill - Part of Claude Office Skills*
+*Ads Copywriter Skill - Part of ChatGPT Office Skills*

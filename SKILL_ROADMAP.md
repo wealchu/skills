@@ -1,7 +1,7 @@
-# Claude Office Skills - Roadmap
+# ChatGPT Office Skills - Roadmap
 
 > Complete list of skills implemented, based on gap analysis from:
-> - awesome-claude-skills (27k stars)
+> - historical community source (see THIRD_PARTY_NOTICES.md) (27k stars)
 > - awesome-n8n-templates (18k stars)  
 > - Stirling-PDF (73k stars)
 
@@ -39,17 +39,17 @@
 | 14 | chat-with-pdf | Document AI | n8n-templates | ✅ Done |
 | 15 | data-analysis | Spreadsheet | n8n-templates | ✅ Done |
 | 16 | email-classifier | Email | n8n-templates | ✅ Done |
-| 17 | file-organizer | Productivity | awesome-claude | ✅ Done |
-| 18 | brand-guidelines | Marketing | awesome-claude | ✅ Done |
-| 19 | changelog-generator | Dev/PM | awesome-claude | ✅ Done |
+| 17 | file-organizer | Productivity | historical community source | ✅ Done |
+| 18 | brand-guidelines | Marketing | historical community source | ✅ Done |
+| 19 | changelog-generator | Dev/PM | historical community source | ✅ Done |
 
 ### Sales/CRM (3 skills)
 
 | # | Skill | Category | Source | Status |
 |---|-------|----------|--------|--------|
-| 20 | lead-research | Sales | awesome-claude | ✅ Done |
+| 20 | lead-research | Sales | historical community source | ✅ Done |
 | 21 | lead-qualification | Sales | n8n-templates | ✅ Done |
-| 22 | content-writer | Marketing | awesome-claude | ✅ Done |
+| 22 | content-writer | Marketing | historical community source | ✅ Done |
 
 ### PDF Power Tools (6 skills)
 
@@ -67,7 +67,7 @@
 | # | Skill | Category | Source | Status |
 |---|-------|----------|--------|--------|
 | 29 | suspicious-email | Security | n8n-templates | ✅ Done |
-| 30 | invoice-organizer | Finance | awesome-claude | ✅ Done |
+| 30 | invoice-organizer | Finance | historical community source | ✅ Done |
 
 ### Official Guides (6 files)
 - ✅ docx-guide.md
@@ -114,10 +114,10 @@ skill-name/
 ---
 name: Skill Name
 description: One-line description
-author: claude-office-skills
+author: wealchu
 version: "1.0"
 tags: [category, use-case, tool]
-models: [claude-sonnet-4, claude-opus-4]
+models: [gpt-6-astra]
 tools: [computer, text_editor, file_operations]
 ---
 ```
