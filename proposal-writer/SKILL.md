@@ -1,6 +1,6 @@
 ---
 # ═══════════════════════════════════════════════════════════════════════════════
-# CLAUDE OFFICE SKILL - Enhanced Metadata v2.0
+# GHATGPT OFFICE SKILL - Enhanced Metadata v2.0
 # ═══════════════════════════════════════════════════════════════════════════════
 
 # Basic Information
@@ -22,10 +22,8 @@ department: Sales
 # AI Model Compatibility
 models:
   recommended:
-    - claude-sonnet-4
-    - claude-opus-4
+    - gpt-4o
   compatible:
-    - claude-3-5-sonnet
     - gpt-4
     - gpt-4o
 
